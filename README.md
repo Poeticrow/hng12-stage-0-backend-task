@@ -84,14 +84,7 @@ http://localhost:3002/
 ## 🌍 Deployment
 
 This API is **deployed** to a publicly accessible endpoint:  
-🔗 **Live URL:** `[your-deployed-url]`
-
-If you haven't deployed yet, consider using:
-
-- **Render:** https://render.com/
-- **Railway:** https://railway.app/
-- **Vercel:** https://vercel.com/
-- **Heroku:** https://www.heroku.com/
+🔗 **Live URL:** `[https://hng12-stage-0-backend-task.onrender.com]`
 
 ---
 
