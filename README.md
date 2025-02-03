@@ -10,7 +10,7 @@ The API also includes a basic root endpoint returning personal information
 
 ## 🚀 **Live API URL**
 
-- [Deployed API URL](your-deployment-url) _(Replace with actual URL after deployment)_
+- [Deployed API URL](https://hng12-stage-0-backend-task.onrender.com)
 
 ---
 

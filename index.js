@@ -45,7 +45,6 @@ app.get("/api/classify-number", async (req, res) => {
     );
 
     const funFact = funFactResponse.data.text;
-    console.log({ funFactResponse, num });
 
     // Classify Number Properties
     const properties = [];
