@@ -1,106 +1,154 @@
-# HNG12 Backend Task – Public API
+# Number Classification API
 
-This is a **public API** developed using **Node.js (Express.js)** that returns:
+## 📋 **Project Description**
 
-- Your registered **HNG12 email**
-- The **current datetime** in **ISO 8601 (UTC) format**
-- The **GitHub repository URL** of this project
+This API classifies a given number based on interesting mathematical properties such as whether it is prime, perfect, or an Armstrong number. Additionally, it provides the sum of its digits and a fun fact fetched from the Numbers API.
 
-The API is deployed to a **publicly accessible endpoint** and includes proper **CORS handling**, **error handling**, and adheres to **RESTful principles**.
+The API also includes a basic root endpoint returning personal information
 
 ---
 
-## 🚀 Features
+## 🚀 **Live API URL**
 
-✅ Returns a JSON response with **email, timestamp, and GitHub URL**  
-✅ Handles **CORS (Cross-Origin Resource Sharing)**  
-✅ Uses **ISO 8601 (UTC) timestamp**  
-✅ Proper **HTTP status codes (200, 404, 500)**  
-✅ Includes **error handling**
+- [Deployed API URL](your-deployment-url) _(Replace with actual URL after deployment)_
 
 ---
 
-## 📌 API Endpoint
+## ⚙️ **Technology Stack**
 
-### **GET /**
+- **Backend:** Node.js (Express)
+- **External API:** Numbers API
+- **HTTP Client:** Axios
 
-Returns basic information in JSON format.
+---
 
-### ✅ Response Format (200 OK)
+## 🗂️ **Project Structure**
+
+```
+number-classification-api/
+├── index.js       # Main server and API logic
+├── utils.js       # Helper functions (prime check, Armstrong, etc.)
+├── package.json   # Project dependencies
+├── .gitignore     # Git ignore file
+└── README.md      # Documentation
+```
+
+---
+
+## 🌐 **API Endpoints**
+
+### 1️⃣ **Root Endpoint**
+
+**`GET /`**  
+Returns basic personal information.
+
+#### ✅ Response (200 OK):
 
 ```json
 {
   "email": "ebubenwanze@gmail.com",
-  "current_datetime": "2025-01-30T09:30:00Z",
+  "current_datetime": "2025-02-03T12:00:00Z",
   "github_url": "https://github.com/Poeticrow/hng12-stage-0-backend-task"
 }
 ```
 
-### ❌ Error Responses
+---
 
-| **Scenario**                      | **Status Code**             | **Response**                           |
-| --------------------------------- | --------------------------- | -------------------------------------- |
-| Invalid route (`GET /random`)     | `404 Not Found`             | `{ "error": "Route not found" }`       |
-| Server error (unexpected failure) | `500 Internal Server Error` | `{ "error": "Internal Server Error" }` |
+### 2️⃣ **Number Classification API**
+
+**`GET /api/classify-number?number=<your-number>`**  
+Classifies the provided number and returns its mathematical properties.
+
+#### ✅ Response (200 OK):
+
+```json
+{
+  "number": 264,
+  "is_prime": false,
+  "is_perfect": false,
+  "properties": ["even"],
+  "digit_sum": 12,
+  "fun_fact": "264 is the largest known number whose square is undulating."
+}
+```
+
+#### ❌ Response (400 Bad Request):
+
+```json
+{
+  "number": "abc",
+  "error": true
+}
+```
+
+#### ❌ Response (404 Not Found):
+
+```json
+{
+  "error": "Route not found"
+}
+```
 
 ---
 
-## 💻 Installation & Setup
+## 🔍 **Number Properties Explained**
 
-### 1️⃣ Clone the Repository
+- **`is_prime`**: Checks if the number is a prime number.
+- **`is_perfect`**: Determines if the number is perfect (sum of proper divisors equals the number).
+- **`properties`**: Lists if the number is `armstrong`, `even`, or `odd`.
+- **`digit_sum`**: Returns the sum of all digits in the number.
+- **`fun_fact`**: A fun mathematical fact fetched from the [Numbers API](http://numbersapi.com/).
 
-```sh
+---
+
+## ⚡ **Setup Instructions**
+
+### 1️⃣ **Clone the Repository**
+
+```bash
 git clone https://github.com/Poeticrow/hng12-stage-0-backend-task.git
-cd your-repo
+cd hng12-stage-0-backend-task
 ```
 
-### 2️⃣ Install Dependencies
+### 2️⃣ **Install Dependencies**
 
-```sh
+```bash
 npm install
 ```
 
-### 3️⃣ Start the Server
+### 3️⃣ **Run the Server Locally**
 
-- **Production Mode:**
-  ```sh
-  npm start
-  ```
-- **Development Mode (Auto-restart with nodemon):**
-  ```sh
-  npm run dev
-  ```
-
-### 4️⃣ Access the API
-
-Open your browser or use a tool like **Postman** to test:
-
-```
-http://localhost:3002/
+```bash
+node index.js
+# or for development
+npx nodemon index.js
 ```
 
----
-
-## 🌍 Deployment
-
-This API is **deployed** to a publicly accessible endpoint:  
-🔗 **Live URL:** `[https://hng12-stage-0-backend-task.onrender.com]`
+The server will start on `http://localhost:3002` (or your specified port).
 
 ---
 
-## 📖 Resources
+## 🚀 **Deployment**
 
-- **HNG12 Internship:** [https://hng.tech](https://hng.tech)
-- **Hire Node.js Developers:** [https://hng.tech/hire/nodejs-developers](https://hng.tech/hire/nodejs-developers)
-
----
-
-## 📜 License
-
-This project is licensed under the **MIT License**.
+The API is deployed to a publicly accessible endpoint. _(Replace `<your-deployment-url>` above with your actual URL after deployment to Render or any other platform.)_
 
 ---
 
-### 🎯 Contributors
+## 💡 **Additional Resources**
 
-👤 **Ebube Nwanze** – [GitHub](https://github.com/Poeticrow)
+- [Numbers API Documentation](http://numbersapi.com/#42)
+- [Parity (Mathematics) - Wikipedia](<https://en.wikipedia.org/wiki/Parity_(mathematics)>)
+- [Hire Node.js Developers](https://hng.tech/hire/nodejs-developers)
+
+---
+
+## 👨‍💻 **Author**
+
+- **Name:** Ebube Nwanze
+- **GitHub:** [Poeticrow](https://github.com/Poeticrow)
+
+---
+
+## 📜 **License**
+
+This project is licensed under the MIT License.
